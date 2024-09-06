@@ -1,0 +1,11 @@
+region                             = "eu-paris-1"
+compartment_id                     = "ocid1.tenancy.oc1.."
+subnet_id                          = "value"
+paas_compartment_id                = "ocid1.compartment.oc1.."
+integration_instance_display_name  = "DatalakeOIC"
+
+oci_provider_auth             = "APIKey"
+oci_provider_tenancy_ocid     = "ocid1.tenancy.oc1.."
+oci_provider_user_ocid        = "ocid1.user.oc1.."
+oci_provider_fingerprint      = "value"
+oci_provider_private_key_path = "C:\\Users\\slim.soltani.dridi\\.oci\\sessions\\learn-terraform\\oci_api_key_ssoltanid.pem"
