@@ -1,8 +1,8 @@
-region                             = "eu-paris-1"
-compartment_id                     = "ocid1.tenancy.oc1.."
-subnet_id                          = "value"
-paas_compartment_id                = "ocid1.compartment.oc1.."
-integration_instance_display_name  = "DatalakeOIC"
+region                            = "eu-paris-1"
+compartment_id                    = "ocid1.tenancy.oc1.."
+subnet_id                         = "value"
+paas_compartment_id               = "ocid1.compartment.oc1.."
+integration_instance_display_name = "DatalakeOIC"
 
 oci_provider_auth             = "APIKey"
 oci_provider_tenancy_ocid     = "ocid1.tenancy.oc1.."

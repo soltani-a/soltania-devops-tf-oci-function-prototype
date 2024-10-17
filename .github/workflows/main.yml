@@ -1,0 +1,32 @@
+name: OCI Function Continuous Integration with Approval
+
+on:
+  workflow_dispatch:  # Enables manual execution from the GitHub UI
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+      - develop
+
+permissions:  # Ajouter cette section pour configurer les permissions globales
+  id-token: write
+  contents: read
+
+jobs:
+  python-workflow:
+    uses: soltani-a/soltania-devops-github-actions-templates-prototype/.github/workflows/python-ci-template.yml@main
+    secrets: inherit
+    with:
+      python-versions: '3.12' 
+      source-directory: 'src/main/python'
+      test-directory: 'src/test/python'
+
+  terraform-workflow:
+    uses: soltani-a/soltania-devops-github-actions-templates-prototype/.github/workflows/terraform-ci-template.yml@main
+    secrets: inherit
+    needs: python-workflow
+    with:
+      terraform-directory: 'src/main/terraform'
+      github-token: test

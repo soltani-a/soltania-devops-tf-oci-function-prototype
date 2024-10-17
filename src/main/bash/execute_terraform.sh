@@ -16,6 +16,12 @@ terraform fmt
 # Initialize Terraform without user input
 terraform init -input=false
 
+# Run terraform validate to ensure the configuration is syntactically valid
+terraform validate
+
+# Run terraform tests for verifying module functionality
+terraform test
+
 # Run terraform plan and save the plan to a file named YYYYMMDD_HHMMSS.tfplan
 terraform plan -out="$current_date.tfplan" -input=false
 
