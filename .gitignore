@@ -119,5 +119,7 @@ override.tf.json
 # Terraform plan files
 *.tfplan
 # Terraform provider override files
+.terraform
 .terraformrc
 terraform.rc
+.terraform.lock.hcl

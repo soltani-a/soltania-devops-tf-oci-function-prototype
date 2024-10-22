@@ -2,6 +2,15 @@ name: OCI Function Continuous Integration with Approval
 
 on:
   workflow_dispatch:  # Enables manual execution from the GitHub UI
+    inputs:
+      environment:
+        description: 'The environment to deploy to (e.g., dev, prod)'
+        required: true
+        default: 'dev'
+      dry-run:
+        description: 'Enable or disable dry-run mode'
+        required: false
+        default: 'false'
   push:
     branches:
       - main
@@ -29,4 +38,7 @@ jobs:
     needs: python-workflow
     with:
       terraform-directory: 'src/main/terraform'
-      github-token: test
+      oci-region: "${{ vars.OCI_REGION }}"
+      aws-s3-endpoint-url: "${{ vars.AWS_S3_ENDPOINT_URL }}"
+      aws-s3-bucket-name: "${{ vars.AWS_S3_BUCKET_NAME }}"
+      aws-s3-region: "${{ vars.AWS_REGION }}"

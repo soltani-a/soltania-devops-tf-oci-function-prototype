@@ -1,7 +1,7 @@
 # API Gateway pour exposer la fonction
 resource "oci_apigateway_gateway" "my_api_gateway" {
-  compartment_id = var.compartment_id
-  subnet_id      = var.subnet_id
+  compartment_id = oci_identity_compartment.my_compartment.id
+  subnet_id      = oci_core_subnet.my_private_subnet.id
   display_name   = "my_api_gateway"
   endpoint_type  = "PUBLIC"
 }
@@ -9,7 +9,7 @@ resource "oci_apigateway_gateway" "my_api_gateway" {
 # Déploiement de l'API
 resource "oci_apigateway_deployment" "api_deployment" {
   gateway_id     = oci_apigateway_gateway.my_api_gateway.id
-  compartment_id = var.compartment_id
+  compartment_id = oci_identity_compartment.my_compartment.id
   display_name   = "my_api_deployment"
   path_prefix    = "/v1"
 

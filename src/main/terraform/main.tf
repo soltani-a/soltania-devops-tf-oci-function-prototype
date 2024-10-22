@@ -1,7 +1,7 @@
 resource "oci_functions_application" "function_app" {
   display_name   = "my_function_app"
-  compartment_id = var.compartment_id
-  subnet_ids     = [var.subnet_id] # Ajout du subnet_id
+  compartment_id = oci_identity_compartment.my_compartment.id
+  subnet_ids     = [oci_core_subnet.my_private_subnet.id] # Ajout du subnet_id
 }
 
 # Fonction OCI avec le code source local
